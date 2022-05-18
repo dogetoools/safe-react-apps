@@ -66,6 +66,12 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 20px;
         border: 3px solid #B2BBC0;
     }
+
+    // patch modal width
+    div[class|='makeStyles-paper'] {
+        width: '';
+        min-width: 360px;
+    }
 `
 
 export default GlobalStyle

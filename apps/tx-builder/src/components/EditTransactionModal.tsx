@@ -103,7 +103,10 @@ const FormContainer = styled.div`
   width: 400px;
   padding: 24px;
   border-radius: 8px;
-
+  @media only screen and (max-width: 768px) {
+    padding: 0px;
+    width: 310px;
+  }
   background-color: white;
 `
 
