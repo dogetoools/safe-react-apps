@@ -162,6 +162,11 @@ const Wrapper = styled.main`
     padding-top: 120px;
     max-width: 1024px;
     margin: 0 auto;
+    @media only screen and (max-width: 768px) {
+      padding: 20px;
+      padding-right: 15px;
+      padding-top: 100px;
+    }
   }
 `
 

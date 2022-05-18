@@ -51,7 +51,7 @@ const Header = () => {
         {showTitle ? (
           <>
             {/* Transaction Builder Title */}
-            <StyledTitle size="xl">Transaction Builder</StyledTitle>
+            <StyledTitle size="sm">Transaction Builder</StyledTitle>
             <Tooltip
               placement="top"
               title="Help Article"
@@ -75,7 +75,7 @@ const Header = () => {
         {showLinkToLibrary && (
           <RigthLinkWrapper>
             <StyledLink to={TRANSACTION_LIBRARY_PATH}>
-              <StyledRightLinkLabel size="xl">{`(${batches.length}) Your transaction library`}</StyledRightLinkLabel>
+              <StyledRightLinkLabel size="lg">{`(${batches.length}) Your transaction library`}</StyledRightLinkLabel>
               <FixedIcon type={'chevronRight'} />
             </StyledLink>
           </RigthLinkWrapper>
@@ -126,4 +126,5 @@ const RigthLinkWrapper = styled.div`
 
 const StyledRightLinkLabel = styled(Text)`
   margin-right: 8px;
+  margin-left: 25px;
 `

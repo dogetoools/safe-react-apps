@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import useElementHeight from '../hooks/useElementHeight/useElementHeight'
 import { ProposedTransaction } from '../typings/models'
 import { weiToEther } from '../utils'
+import { isMobile } from 'react-device-detect'
 
 type TransactionDetailsProp = {
   transaction: ProposedTransaction
@@ -40,7 +41,8 @@ const TransactionDetails = ({ transaction }: TransactionDetailsProp) => {
         hash={to}
         showAvatar
         showCopyBtn
-        shouldShowShortName
+        shouldShowShortName={!isMobile}
+        shortenHash={isMobile ? 8 : undefined}
       />
 
       <TxSummaryContainer>
@@ -53,7 +55,7 @@ const TransactionDetails = ({ transaction }: TransactionDetailsProp) => {
           hash={to}
           shortenHash={4}
           showCopyBtn
-          shouldShowShortName
+          shouldShowShortName={!isMobile}
         />
 
         {/* value */}
@@ -105,6 +107,9 @@ const Wrapper = styled.article`
   flex-grow: 1;
   padding: 0 16px;
   user-select: text;
+  @media only screen and (max-width: 768px) {
+    padding: 0px;
+  }
 `
 
 const TxSummaryContainer = styled.div`

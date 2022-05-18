@@ -18,9 +18,10 @@ import TransactionsBatchList from '../components/TransactionsBatchList'
 import useModal from '../hooks/useModal/useModal'
 import { HOME_PATH } from '../routes/routes'
 import SuccessBatchCreationModal from '../components/modals/SuccessBatchCreationModal'
-import { useTransactionLibrary, useTransactions } from '../store'
+import { useNetwork, useTransactionLibrary, useTransactions } from '../store'
 import { useSimulation } from '../hooks/useSimulation'
 import { FETCH_STATUS } from '../utils'
+import { ChainInfo } from '@gnosis.pm/safe-apps-sdk'
 
 const ReviewAndConfirm = () => {
   const {
@@ -71,6 +72,8 @@ const ReviewAndConfirm = () => {
       navigate(HOME_PATH)
     }
   }, [transactions, navigate])
+  const { chainInfo } = useNetwork()
+  const simulateSupported = !['10000', '10000'].includes(chainInfo?.chainId || '')
 
   return (
     <>
@@ -116,15 +119,17 @@ const ReviewAndConfirm = () => {
           </Button>
 
           {/* Simulate batch button */}
-          <Button
-            size="md"
-            type="button"
-            variant="contained"
-            color="secondary"
-            onClick={clickSimulate}
-          >
-            Simulate
-          </Button>
+          {simulateSupported && (
+            <Button
+              size="md"
+              type="button"
+              variant="contained"
+              color="secondary"
+              onClick={clickSimulate}
+            >
+              Simulate
+            </Button>
+          )}
         </ButtonsWrapper>
 
         {/* Simulation statuses */}
@@ -252,6 +257,11 @@ const Wrapper = styled.main`
     padding-top: 120px;
     max-width: 650px;
     margin: 0 auto;
+    @media only screen and (max-width: 768px) {
+      padding: 15px;
+      padding-right: 10px;
+      padding-top: 100px;
+    }
   }
 `
 
@@ -265,16 +275,9 @@ const StyledTitle = styled(Title)`
 const ButtonsWrapper = styled.div`
   display: flex;
   margin-top: 24px;
-  padding: 0 0 0 34px;
-
-  > button + button {
-    margin-left: 16px;
-  }
-
-  > :last-child {
-    margin-left: auto;
-    margin-right: 0;
-  }
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 `
 
 const StyledButtonLabel = styled.span`

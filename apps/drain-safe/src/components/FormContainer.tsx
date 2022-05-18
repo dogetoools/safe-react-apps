@@ -2,9 +2,13 @@ import styled from 'styled-components'
 
 const FormContainer = styled.form`
   margin-bottom: 2rem;
-  width: 100%;
   max-width: 800px;
   padding: 30px;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0px;
+    padding-left: 20px;
+  }
 
   display: grid;
   grid-template-columns: 1fr;

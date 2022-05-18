@@ -16,6 +16,7 @@ import DragIndicatorIcon from '@material-ui/icons/DragIndicator'
 import { ProposedTransaction } from '../typings/models'
 import TransactionDetails from './TransactionDetails'
 import { getTransactionText } from '../utils'
+import { isMobile } from 'react-device-detect'
 
 const UNKNOWN_POSITION_LABEL = '?'
 const minArrowSize = '12'
@@ -123,7 +124,7 @@ const TransactionBatchListItem = memo(
                 shortName={networkPrefix || ''}
                 hash={to}
                 shortenHash={4}
-                shouldShowShortName
+                shouldShowShortName={!isMobile}
               />
 
               {/* Transaction Description label */}

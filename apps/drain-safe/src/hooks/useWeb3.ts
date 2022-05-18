@@ -53,6 +53,8 @@ export enum CHAINS {
   AVALANCHE = '43114',
   VOLTA = '73799',
   AURORA = '1313161554',
+  SMARTBCH = '10000',
+  SMARTBCH_AMBER = '10001',
 }
 
 export const rpcUrlGetterByNetwork: {
@@ -73,4 +75,6 @@ export const rpcUrlGetterByNetwork: {
   [CHAINS.AVALANCHE]: () => 'https://api.avax.network/ext/bc/C/rpc',
   [CHAINS.VOLTA]: () => 'https://volta-rpc.energyweb.org',
   [CHAINS.AURORA]: () => 'https://mainnet.aurora.dev',
+  [CHAINS.SMARTBCH]: () => 'https://smartbch.fountainhead.cash/mainnet',
+  [CHAINS.SMARTBCH_AMBER]: () => 'https://moeing.tech:9545',
 }
