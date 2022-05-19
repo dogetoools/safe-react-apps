@@ -171,6 +171,7 @@ const StyledTextField = styled(TextFieldInput)`
     background-color: #fff;
     border-radius: 6px;
     border: 0;
+    width: 100%;
     .MuiInputBase-root {
       border: 2px solid #e2e3e3;
       border-radius: 6px;

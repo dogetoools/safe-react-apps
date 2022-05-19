@@ -53,7 +53,7 @@ function ScanCode({ wcConnect, wcClientData }: Props) {
       {errorConnectingWebcam && (
         <StyledErrorContainer>
           <StyledErrorTitle size="sm">Check browser permissions</StyledErrorTitle>
-          <img src={ErrorImg} alt="camera permission error" />
+          <img width="100%" src={ErrorImg} alt="camera permission error" />
         </StyledErrorContainer>
       )}
       {isLoadingWebcam && (

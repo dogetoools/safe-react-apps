@@ -67,7 +67,7 @@ const App = () => {
     <>
       <AppBar />
       <StyledMainContainer as="main">
-        <StyledAppContainer container direction="column" alignItems="center">
+        <StyledAppContainer container alignItems="center">
           <StyledCardContainer item>
             <StyledCard>
               {connectionStatus === CONNECTION_STATUS.DISCONNECTED && (
@@ -122,16 +122,21 @@ const StyledMainContainer = styled(Container)`
 const StyledAppContainer = styled(Grid)`
   height: 100%;
   padding-top: 45px;
+
+  flex-direction: column;
+  @media only screen and (max-width: 980px) {
+    flex-direction: row;
+  }
 `
 
 const StyledCardContainer = styled(Grid)`
-  width: 484px;
+  max-width: 484px;
   margin-top: 45px;
 `
 
 const StyledHelpContainer = styled(Grid)`
   && {
-    width: 484px;
+    max-width: 484px;
     margin-top: 16px;
   }
 `

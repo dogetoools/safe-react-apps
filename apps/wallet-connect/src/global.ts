@@ -27,6 +27,11 @@ const GlobalStyle = createGlobalStyle`
         src: local('Averta Bold'), url(${avertaBoldFont}) format('woff');
         font-weight: bold;
     }
+
+    // patch modal margin
+    body div[role='presentation'] div[tabindex='-1'] div {
+        margin: 0px;
+    }
 `
 
 export default GlobalStyle
