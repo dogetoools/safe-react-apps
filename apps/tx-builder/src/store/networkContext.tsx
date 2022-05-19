@@ -38,6 +38,12 @@ const NetworkProvider: React.FC = ({ children }) => {
     const web3Instance = new Web3(rpcUrl)
     const interfaceRepo = new InterfaceRepository(chainInfo)
 
+    if (['10000', '10001'].includes(chainInfo.chainId)) {
+      web3Instance.eth.ens.registryAddress = {
+        '10000': '0xCfb86556760d03942EBf1ba88a9870e67D77b627',
+        '10001': '0x32f1FBE59D771bdB7FB247FE97A635f50659202b',
+      }[chainInfo.chainId]!
+    }
     setWeb3(web3Instance)
     setInterfaceRepo(interfaceRepo)
   }, [chainInfo])
@@ -60,7 +66,18 @@ const NetworkProvider: React.FC = ({ children }) => {
   const nativeCurrencySymbol = chainInfo?.nativeCurrency.symbol
 
   const getAddressFromDomain = (name: string): Promise<string> => {
-    return web3?.eth.ens.getAddress(name) || new Promise(resolve => resolve(name))
+    return new Promise(async (resolve, reject) => {
+      try {
+        const address = await web3?.eth.ens.getAddress(name)
+        console.log(address)
+        if (address === '0x0000000000000000000000000000000000000000') {
+          reject(name)
+        }
+        resolve(address!)
+      } catch {
+        reject(name)
+      }
+    })
   }
 
   return (
