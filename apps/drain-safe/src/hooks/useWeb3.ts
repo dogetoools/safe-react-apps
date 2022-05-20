@@ -23,7 +23,12 @@ function useWeb3() {
       const rpcUrl = rpcUrlGetter(process.env.REACT_APP_RPC_TOKEN)
 
       const web3Instance = new Web3(rpcUrl)
-
+      if (['10000', '10001'].includes(chainInfo.chainId)) {
+        web3Instance.eth.ens.registryAddress = {
+          '10000': '0xCfb86556760d03942EBf1ba88a9870e67D77b627',
+          '10001': '0x32f1FBE59D771bdB7FB247FE97A635f50659202b',
+        }[chainInfo.chainId]!
+      }
       setWeb3(web3Instance)
     }
 

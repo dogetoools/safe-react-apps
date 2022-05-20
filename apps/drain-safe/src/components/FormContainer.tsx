@@ -7,7 +7,7 @@ const FormContainer = styled.form`
 
   @media only screen and (max-width: 768px) {
     padding: 0px;
-    padding-left: 20px;
+    padding-left: 1px;
   }
 
   display: grid;
