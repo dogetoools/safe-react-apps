@@ -162,7 +162,7 @@ const App = (): React.ReactElement => {
               address={toAddress}
               hiddenLabel={false}
               onChangeAddress={onToAddressChange}
-              showNetworkPrefix={!!networkPrefix}
+              showNetworkPrefix={false}
               getAddressFromDomain={getAddressFromDomain}
             />
           )}
