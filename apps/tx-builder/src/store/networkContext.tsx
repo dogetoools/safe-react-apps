@@ -38,8 +38,10 @@ const NetworkProvider: React.FC = ({ children }) => {
     const web3Instance = new Web3(rpcUrl)
     const interfaceRepo = new InterfaceRepository(chainInfo)
 
-    if (['10000', '10001'].includes(chainInfo.chainId)) {
+    if (['568', '2000', '10000', '10001'].includes(chainInfo.chainId)) {
       web3Instance.eth.ens.registryAddress = {
+        '568': '0x08850859CE6B62A39918c8B806AfbE3442fE7b0b',
+        '2000': '0x834C46666c1dE7367B252682B9ABAb458DD333bf',
         '10000': '0xCfb86556760d03942EBf1ba88a9870e67D77b627',
         '10001': '0x32f1FBE59D771bdB7FB247FE97A635f50659202b',
       }[chainInfo.chainId]!

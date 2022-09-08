@@ -73,7 +73,7 @@ const ReviewAndConfirm = () => {
     }
   }, [transactions, navigate])
   const { chainInfo } = useNetwork()
-  const simulateSupported = !['10000', '10000'].includes(chainInfo?.chainId || '')
+  const simulateSupported = !['568', '2000', '10000', '10001'].includes(chainInfo?.chainId || '')
 
   return (
     <>
