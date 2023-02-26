@@ -81,7 +81,7 @@ export const rpcUrlGetterByNetwork: {
   [CHAINS.POLYGON]: () => 'https://rpc-mainnet.matic.network',
   [CHAINS.ENERGY_WEB_CHAIN]: () => 'https://rpc.energyweb.org',
   [CHAINS.DOGECHAIN_TESTNET]: () => 'https://rpc-testnet.dogechain.dog',
-  [CHAINS.DOGECHAIN]: () => 'https://rpc.dogmoney.money',
+  [CHAINS.DOGECHAIN]: () => 'https://rpc.ankr.com/dogechain',
   [CHAINS.ARBITRUM]: () => 'https://arb1.arbitrum.io/rpc',
   [CHAINS.AVALANCHE]: () => 'https://api.avax.network/ext/bc/C/rpc',
   [CHAINS.VOLTA]: () => 'https://volta-rpc.energyweb.org',
